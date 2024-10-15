@@ -20,7 +20,7 @@ plates_pivot = plates_df.pivot(index=['plate_id', 'experiment_id'], columns='pro
 wells_pivot = wells_df_prep.pivot(index=['well_id', 'plate_id', 'well_row', 'well_column'], columns='property_name',
                                   values='property_value').reset_index()
 
-# Merge well level data with plate level data
+# Merge well level data with the plate level data
 merged_df = pd.merge(wells_pivot, plates_pivot, on='plate_id', suffixes=('_well', '_plate'), how='left')
 
 # To merge result with experiment-level data
